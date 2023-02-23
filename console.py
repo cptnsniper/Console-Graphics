@@ -1,6 +1,6 @@
 from math import pow, sin, cos, sqrt
 
-x = 120
+x = 119
 y = 30
 aspect = x / y
 pixel_aspect = 19 / 39
@@ -10,7 +10,7 @@ def clamp(value, mini, maxi):
     return(min(max(value, mini), maxi))
 
 def dist(vec1, vec2):
-    return sqrt(pow())
+    return sqrt(pow(vec2[0] - vec1[0], 2) + pow(vec2[1] - vec1[1], 2) + pow(vec2[2] - vec1[2], 2))
 
 def draw():
     for t in range(10000):
@@ -31,7 +31,8 @@ def draw():
             draw_string += "\n"
         print(draw_string)
 
-def draw_draw():
+def draw_ray():
+    draw_string = ""
     for i in range(y):
         for j in range(x):
             u = j / x * 2 - 1
@@ -39,11 +40,20 @@ def draw_draw():
             u *= aspect * pixel_aspect
 
             # camera_start = (u, v, 0)
-            sphere_origin = (0, 0, 50)
+            sphere_origin = (0, 0, 5)
+            pixel = " "
 
-            for i in range(100):
-                ray = (u, v, i)
-                if ()
+            # for i in range(100):
+            ray = (u * 10, v * 10, 0)
+            ray = (u * 10, v * 10, dist(ray, sphere_origin))
+            if (dist(ray, sphere_origin) < 5):
+                pixel = "@"
+                # break
+            draw_string += pixel
+                
+        draw_string += "\n"
+    print(draw_string)
 
 
-draw()
+# draw()
+draw_ray()
